@@ -1,0 +1,23 @@
+services:
+  - type: worker
+    name: musicplayer
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 main.py
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: SESSION
+        sync: false
+      - key: SUDOERS
+        sync: false
+      - key: PREFIX
+        value: "! /"
+      - key: LANGUAGE
+        value: en
+      - key: STREAM_MODE
+        value: audio
