@@ -2,10 +2,13 @@ services:
   - type: worker
     name: musicplayer
     env: python
-    runtime:  python-3.9.21
-    buildCommand: pip install -r requirements.txt
+    region: oregon
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: python3 main.py
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.21
       - key: API_ID
         sync: false
       - key: API_HASH
